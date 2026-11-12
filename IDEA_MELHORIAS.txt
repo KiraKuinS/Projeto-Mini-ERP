@@ -1,0 +1,5 @@
+*IDEIAS SOBRE AS MELHORIAS*
+
+Hoje o limite está escrito dentro da consulta, igual para todos os produtos. Mas um refrigerante que vende 50 por dia precisa de alerta
+com 20 unidades, e um produto que vende 1 por mês pode esperar até 2. Em ERPs de verdade, cada produto tem seu próprio estoque mínimo,
+guardado numa coluna. Não vamos mexer nisso agora, mas guarde a ideia, porque é uma melhoria boa para o README do portfólio.
