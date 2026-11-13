@@ -10,7 +10,7 @@ def buscar_produto(produto_id):
     conexao.close()
     return produto
 
-def cadastrar_clientes(nome, cpf_cnpj):
+def cadastrar_cliente(nome, cpf_cnpj):
     conexao = sqlite3.connect("sql/mini_erp.db")
     cursor = conexao.cursor()
 
@@ -18,22 +18,6 @@ def cadastrar_clientes(nome, cpf_cnpj):
         cursor.execute(
             "INSERT INTO Clientes (nome, cpf_cnpj) VALUES (?, ?)",
             (nome, cpf_cnpj),
-        )
-        conexao.commit()
-        return True
-    except sqlite3.IntegrityError:
-        conexao.rollback()
-        return False
-    finally:
-        conexao.close()
-
-def baixar_estoque(produto_id, quantidade):
-    conexao = sqlite3.connect("sql/mini_erp.db")
-    cursor = conexao.cursor()
-    try:
-        cursor.execute(
-        "UPDATE Produtos SET quantidade_estoque = quantidade_estoque - ? WHERE id = ?",
-        (quantidade, produto_id),
         )
         conexao.commit()
         return True
@@ -103,5 +87,5 @@ def realizar_venda(cliente_id, produto_id, quantidade):
 
     return criar_venda_com_item(cliente_id, produto_id, quantidade, preco)
 
-print(realizar_venda(1, 3, 1))     # válida
-print(realizar_venda(1, 3, 100))   # estoque insuficiente
+#if __name__ == "__main__":
+    print(realizar_venda(1, 3, 1))
